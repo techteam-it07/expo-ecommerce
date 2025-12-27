@@ -17,7 +17,7 @@ app.use(express.json());
 if (ENV.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../admin/dist")));
   app.use("/api/inngest", serve({ client: inngest, functions }));
-  app.use("/api/admin",adminRoutes);
+  app.use("/api/admin", adminRoutes);
   app.get("/{*any}", (req, res) => {
     res.sendFile(path.join(__dirname, "../admin", "dist", "index.html"));
   });
